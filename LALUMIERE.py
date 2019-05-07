@@ -64,26 +64,29 @@ def NIV_GRIS(i,j,ecarteur):
             Image.putpixel(i, (x, y), (moy,moy,moy))
             if moy >=200:
                 z+=1
-    if j>34200 and ecarteur == 0 or z>= 10000:
+    if (j>34200 and ecarteur == 0) or (z>= 10000 and ecarteur == 0):
         print("ATTENTION A LA VOITURE", i)
         ecarteur = 1
-        #GPIO.output(11, GPIO.HIGH)
+        #while #Recuperer valeur broche capteur haut != 1
+            #GPIO.output(11, GPIO.HIGH)
+            #GPIO.output(13, GPIO.LOW)
+        #GPIO.output(11, GPIO.LOW)
         #GPIO.output(13, GPIO.LOW)
-        sleep(0.5)
         #then DEPLOYER L ECARTEUR
         photo(ecarteur)
-    if j>342 and ecarteur ==1 or z>= 10000:
+    if (j>342 and ecarteur ==1) or (z>= 10000 and ecarteur ==1):
         print("Y A TOUJOURS UNE VOITURE !!! ALED", i)
         #GPIO.output(11, GPIO.LOW)
         #GPIO.output(13, GPIO.LOW)
         photo(ecarteur)
     if j<342 and ecarteur == 1 or z<= 10000:
         print("Y A PLUS DE VOITURE JE RE")
-        sleep(0.5)
+        #while #Recuperer valeur broche capteur bas != 1
+            #GPIO.output(11, GPIO.LOW)
+            #GPIO.output(13, GPIO.HIGH)
         #GPIO.output(11, GPIO.LOW)
-        #GPIO.output(13, GPIO.HIGH)
+        #GPIO.output(13, GPIO.LOW)
         ecarteur=0
-        #Rentrer l'écarteur
         photo(ecarteur)
     if j<342 and ecarteur == 0 or z<= 10000:   
         print("Y A PAS DE VOITURE",i)
