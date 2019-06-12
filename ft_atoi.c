@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 int ft_atoi(char *str)
 {
@@ -23,7 +22,6 @@ int ft_atoi(char *str)
 	}
 	if (neg == 1)
 		nbr = -nbr;
-	printf("%d",nbr);
 	return (nbr);
 }
 
