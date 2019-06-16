@@ -58,6 +58,6 @@ int colle(int x,int y)
 
 int main()
 {
-	colle(50,50);
+	colle(21,54);
 	return(0);
 }

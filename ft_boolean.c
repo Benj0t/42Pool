@@ -1,4 +1,4 @@
-#include "ft_boolean.h"
+#include "ft_boolean2.h"
 
 void	ft_putstr(char *str)
 {
