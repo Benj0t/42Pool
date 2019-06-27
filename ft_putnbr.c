@@ -49,7 +49,7 @@ void ft_convert_arg(char *str)
 
 int main(int argc,char ** argv)
 {
-	(void)argc;
-	ft_convert_arg(argv[1]);
+	if (argc == 2)
+		ft_convert_arg(argv[1]);
 	return (0);
 }
