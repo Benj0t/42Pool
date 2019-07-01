@@ -8,7 +8,7 @@
 /*   Created: 2019/06/27 23:59:02 by bemoreau (ft.mdavid)            #+#    #+#             */
 /*   Updated: 2019/06/27 23:59:02 by bemoreau (ft.mdavid)           ###   ########.fr       */
 /* **************************************************************************************** */
-/* **************************************************************************************** */
+/* **************************************************************************************** */ 
 
 #include <unistd.h>
 #include <stdio.h>
@@ -78,11 +78,27 @@ int ft_check(char **dame,int j, int i, int a, int b)
 	return (0);
 }
 
-int ft_backtrack(char **dame, int i, int j, int c)
+int ft_backtrack(char **dame, int i, int j, int c, int *nb)
 {
 	int f;
+	f = 0;
+	if (i >= 8)
+	{
+		return(0);
+	}
 	if (c == 8)
-		return (1);	
+	{
+		ft_putchar('\n');
+		while (dame[f])
+		{
+			ft_putstr(dame[f]);
+			ft_putchar('\n');
+			f++;
+		}
+		ft_putchar('\n');
+		*nb = *nb + 1;
+		return (1);
+	}
 	while (j <= 7)
 	{
 		if (ft_check(dame,i,j,i,j))
@@ -92,18 +108,25 @@ int ft_backtrack(char **dame, int i, int j, int c)
 		else
 		{
 			dame[j][i] = '1';
-			if (!(ft_backtrack(dame, 0, j + 1, c + 1)))
+			if (!(ft_backtrack(dame, 0, j + 1, c + 1, nb)))
 			{
 				dame[j][i] = '0';
 				i++;
 			}
 			else
 			{
-				return (1);
+				if (c == 7)
+				{
+					dame[j][i] = '0';
+					ft_backtrack(dame, i + 1, j, c-1, nb);
+					c--;
+				}
+				if (i == 7 && j == 7)
+					return (1);
 			}
 			
 		}
-		if (i == 8)
+		if (i >= 8)
 		{
 			i = 0;
 			j++;
@@ -141,17 +164,24 @@ void ft_eight_queens(void)
 	j = 0;
 	c = 0;
 	nb = 0;
-	ft_backtrack(dame, i +1 , j , c);
+	ft_backtrack(dame, i , j , c, &nb);
 	i=0;
 	while (i <= 7)
 	{
 		ft_putendl(dame[i]);
 		i++;
 	}
+	ft_putstr("nb de solutions ; ");
+	ft_putnbr(nb);
+	ft_putchar('\n');
 }
 
 int main()
-{	
+{
 	ft_eight_queens();
 	return(0);
 }
+
+
+/// if column==7 && dame == 8
+///
