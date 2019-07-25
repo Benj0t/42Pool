@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: md4 <md4@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: bemoreau <bemoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/26 22:36:46 by marvin            #+#    #+#             */
-/*   Updated: 2019/06/27 00:01:12 by md4              ###   ########.fr       */
+/*   Created: 2019/06/26 22:36:46 by bemoreau          #+#    #+#             */
+/*   Updated: 2019/06/27 00:01:12 by bemoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ int     ft_power(int nb, int pow)
     return(result);
 }
 
-int ft_convert_1(char *str, int base)
+int ft_atoi_base(char *str, int base)
 {
+    ft_strlowercase(str);
     int result;
     int i;
     int sign;
@@ -126,8 +127,7 @@ int main(int ac, char **av)
         if (!(str = (char *)malloc(sizeof(char) * (ft_strlen(av[1])+1))))
             return(0);
         str=av[1];
-        ft_strlowercase(str);
-        printf("valeur de str(%s) en base (%d) est = %d\n", str, 2, ft_convert_1(str, 2));
+        printf("valeur de str(%s) en base (%d) est = %d\n", str, 2, ft_atoi_base(str, 2));
     }
     return(0);
 }

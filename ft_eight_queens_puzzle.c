@@ -151,7 +151,7 @@ void ft_eight_queens(void)
 	while (i <= 7)
 	{
 		dame[i] = (char*)malloc(sizeof(char)*9);
-		j=0;
+		j = 0;
 		while (j <= 7)
 		{
 			dame[i][j] = '0';
@@ -181,7 +181,3 @@ int main()
 	ft_eight_queens();
 	return(0);
 }
-
-
-/// if column==7 && dame == 8
-///

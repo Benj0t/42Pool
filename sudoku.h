@@ -13,15 +13,6 @@
 #ifndef SUDOKU_H
 # define SUDOKU_H
 
-/*ft_toto
-{
-    static int i;
-
-    i++;
-
-    return ((int)i);
-}*/
-
 int ft_strlen(char *str);
 void ft_fill(char **str, char **av);
 int ft_check_line(char *str);

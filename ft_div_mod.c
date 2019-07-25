@@ -12,8 +12,8 @@ int main()
 	int b;
 	int div;
 	int mod;
-	a = 4;
-	b = 2;
+	a = 10;
+	b = 3;
 	div = 0;
 	mod = 0;
 	ft_div_mod(a,b,&div,&mod);

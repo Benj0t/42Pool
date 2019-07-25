@@ -38,31 +38,6 @@ void	ft_putnbr(int nb)
 	}
 }
 
-void	ft_putnbr_plus_1(int nb)
-{
-	unsigned int n;
-
-    nb = nb + 1;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		n = nb * (-1);
-	}
-	else
-	{
-		n = nb;
-	}
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	if (n <= 9)
-	{
-		ft_putchar((nb % 10) + 48);
-	}
-}
-
 void    ft_foreach(int *tab, int length, void(*f)(int))
 {
     int     i;
@@ -74,7 +49,6 @@ void    ft_foreach(int *tab, int length, void(*f)(int))
 int     main(void)
 {
     int tab[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 42};
-    ft_foreach(tab, 10, &ft_putnbr_plus_1);
-    //ft_foreach(tab, &ft_putnbr(int nb));
+    ft_foreach(tab, 10, &ft_putnbr);
     return (0);
 }
