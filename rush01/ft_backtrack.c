@@ -39,30 +39,35 @@ int ft_check(char **list, char **grille, int x, int y, char c)
     return(1);
 }
 
+void ft_skip_tab(char **grille, int *x, int *y)
+{
+    while (grille[*x][*y] != '0')
+    {
+        *y = *y + 1;
+        if (*y == 4)
+        {
+            *y = 0;
+            *x = *x + 1;
+            if (*x == 4)
+                return;
+        }        
+    }
+}
+
 int ft_backtrack(char **grille,char **list, int x, int y)
 {
     char c;
 
-    c = '1';
-    while(c <= '4')
+    c = '0';
+    while(++c <= '4')
     {
-        while (grille[x][y] != '0')
-        {
-            y++;
-            if (y == 4)
-            {
-                y = 0;
-                x++;
-                if (x == 4)
-                    return(1);
-            }
-            
-        }
+        ft_skip_tab(grille,&x,&y);
+        if (x == 4)
+            return(1);
         if (ft_check(list,grille,x,y,c) < 0)
         {
             if (c == '4')
                 return(-1);
-            c++;
         }
         else
         {
@@ -72,10 +77,7 @@ int ft_backtrack(char **grille,char **list, int x, int y)
                 grille[x][y] = '0';
                 if (c == '4')
                     return(-1);
-                c++;
             }
-            else
-                return(1);
         }
     }
     return(1);

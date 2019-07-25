@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+void ft_ski_tab(char **grille, int *x, int *y);
 int ft_check_column(char **grille, int x, int y, char c);
 int ft_check_line(char **grille, int x, int y, char c);
 int ft_check(char **list, char **grille, int x, int y, char c);
