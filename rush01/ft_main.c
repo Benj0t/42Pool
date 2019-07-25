@@ -13,11 +13,14 @@ int main(int argc, char **argv)
     if (ft_parse(tab) < 0 || ft_tablen(tab) != 16)
     {
         ft_putstr("Error\n");
+        free(tab);
         return(0);
     }
     grille = ft_init(grille, 4);
-    //ft_backtrack(tab);
-    return(0);
+    ft_backtrack(grille,tab, 0,0);
+    int i=-1;
+    while((++i) <= 3)
+            printf("%s\n",grille[i]);
 }
 
 /*

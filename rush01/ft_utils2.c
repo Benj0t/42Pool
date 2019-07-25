@@ -56,7 +56,7 @@ char **ft_init(char **tab, int c)
 	tab[c] = NULL;
 	while (i < c)
 	{
-		tab[i] = (char*)malloc(sizeof(char)*c+1);
+		tab[i] = (char*)malloc(sizeof(char)*(c+1));
 		j = 0;
 		while (j < c)
 		{

@@ -14,7 +14,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -I./includes $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf  $(OBJ)
+	rm -f  $(OBJ)
 fclean: clean
-		rm -rf $(NAME)
-re :	fclean $(NAME)
+		rm -f $(NAME)
+re :	fclean $(NAME) 

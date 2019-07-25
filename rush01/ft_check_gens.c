@@ -8,6 +8,8 @@
 4 0 0 0 0 4
   1 2 3 4
 
+0 1 2  
+4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2
     1     2       3      4      5       6           7       8       9       10      11          12      13      14          15      16
 "col1up col2up col3up col4up col1down col2down col3down col4down row1left row2left row3left row4left row1right row2right row3right row4right"
  
@@ -31,7 +33,7 @@ int ft_check_colup(char **list, char **grille, int x, int y, char c)
         }
     }
     grille[x][y] = '0';
-    return(count <= ft_atoi(list[x]) ? 1 : -1);
+    return(count <= ft_atoi(list[y]) ? 1 : -1);
 }
 
 int ft_check_coldown(char **list, char **grille, int x, int y, char c)
@@ -44,16 +46,18 @@ int ft_check_coldown(char **list, char **grille, int x, int y, char c)
     x2 = 4;
     tmp = '0';
     grille[x][y] = c;
-    while (grille[--x2])
+    while (--x2 >= 0)
     {
+        //ft_putendl("Je compte pas enfin si mais pas vraiment");
         if (grille[x2][y] > tmp)
         {
+            //ft_putendl("Je compte");
             tmp = grille[x2][y];
             count++;
         }
     }
     grille[x][y] = '0';
-    return(count <= ft_atoi(list[x + 4]) ? 1 : -1);
+    return(count <= ft_atoi(list[y + 4]) ? 1 : -1);
 }
 
 int ft_check_rowleft(char **list, char **grille, int x, int y, char c)
